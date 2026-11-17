@@ -57,6 +57,7 @@ export function AppHeader({
   const [signOutPassword, setSignOutPassword] = useState("");
   const [signOutEmail, setSignOutEmail] = useState("");
   const [verifyingPassword, setVerifyingPassword] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   // The name is cosmetic; a failure just leaves the role label showing.
   useEffect(() => {
@@ -171,11 +172,54 @@ export function AppHeader({
   }
 
   const links = NAV_LINKS[role];
+
+  // Close the mobile drawer whenever the route changes.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMobileOpen(false);
+  }, [pathname]);
   const identity = name || ROLE_LABELS[role];
 
   return (
     <>
-    <aside className="fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-black/10 bg-primary-bg/95 backdrop-blur">
+    {/* Mobile hamburger */}
+    <button
+      type="button"
+      onClick={() => setMobileOpen(true)}
+      aria-label="Open navigation"
+      className="fixed left-3 top-3 z-40 inline-flex items-center justify-center rounded-lg border border-black/10 bg-white p-2 text-black shadow-sm md:hidden"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    {mobileOpen ? (
+      <button
+        type="button"
+        aria-label="Close navigation"
+        onClick={() => setMobileOpen(false)}
+        className="fixed inset-0 z-40 bg-black/40 md:hidden"
+      />
+    ) : null}
+
+    <aside
+      className={clsx(
+        "fixed inset-y-0 left-0 z-50 flex w-64 flex-col border-r border-black/10 bg-primary-bg/95 backdrop-blur transition-transform duration-200 md:z-40 md:translate-x-0",
+        mobileOpen ? "translate-x-0" : "-translate-x-full",
+      )}
+    >
+      {/* Close button (mobile) */}
+      <button
+        type="button"
+        onClick={() => setMobileOpen(false)}
+        aria-label="Close navigation"
+        className="absolute right-2 top-2 rounded-lg p-1.5 text-black/60 hover:bg-white/70 hover:text-black md:hidden"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
       <div className="flex items-center gap-2 px-4 py-4">
         <Link
           href="/"

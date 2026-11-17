@@ -302,7 +302,7 @@ export default function PatientDashboardPage() {
   const firstName = fullName.trim().split(/\s+/)[0] ?? "";
 
   return (
-    <div className="min-h-full bg-primary-bg pl-64">
+    <div className="min-h-full bg-primary-bg md:pl-64">
       <AppHeader
         role="patient"
         sections={[
@@ -311,7 +311,7 @@ export default function PatientDashboardPage() {
           { id: "history", label: "History" },
         ]}
       />
-      <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 lg:py-14">
+      <main className="mx-auto w-full max-w-6xl px-4 pt-16 pb-10 sm:px-6 md:pt-10 lg:py-14">
         <header className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-brand-hover/40 bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-black/70">

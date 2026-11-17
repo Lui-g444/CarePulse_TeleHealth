@@ -361,7 +361,7 @@ export default function AdminDashboardPage() {
     : 1;
 
   return (
-    <div className="min-h-full bg-primary-bg pl-64">
+    <div className="min-h-full bg-primary-bg md:pl-64">
       <AppHeader
         role="admin"
         sections={[
@@ -371,7 +371,7 @@ export default function AdminDashboardPage() {
           { id: "user-management", label: "User management" },
         ]}
       />
-      <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:py-14">
+      <main className="mx-auto w-full max-w-7xl px-4 pt-16 pb-10 sm:px-6 md:pt-10 lg:py-14">
         <header className="mb-8 flex flex-wrap items-start justify-between gap-4">
           <div>
             <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-brand-hover/40 bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-black/70">

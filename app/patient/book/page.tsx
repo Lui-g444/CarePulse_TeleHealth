@@ -368,9 +368,9 @@ export default function PatientBookingPage() {
   }
 
   return (
-    <div className="min-h-full bg-primary-bg pl-64">
+    <div className="min-h-full bg-primary-bg md:pl-64">
       <AppHeader role="patient" />
-      <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 lg:py-14">
+      <main className="mx-auto w-full max-w-6xl px-4 pt-16 pb-10 sm:px-6 md:pt-10 lg:py-14">
         <header className="mb-8">
           <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-brand-hover/40 bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-black/70">
             <Stethoscope className="h-3.5 w-3.5" aria-hidden="true" />
